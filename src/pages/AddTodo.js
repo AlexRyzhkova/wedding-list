@@ -5,6 +5,8 @@ import { postTodo } from "../api/fetchTodos";
 export default function AddTodo() {
   const [title, setTitle] = useState("");
   const [prio, setPrio] = useState("");
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function handleTitleChange(event) {
     setTitle(event.target.value);
@@ -17,9 +19,19 @@ export default function AddTodo() {
     event.preventDefault();
 
     const todo = { title, prio };
-    await postTodo(todo);
-    setTitle("");
-    setPrio("");
+    setError(false);
+    setLoading(true);
+
+    try {
+      await postTodo(todo);
+      setTitle("");
+      setPrio("");
+    } catch (error) {
+      console.log(error);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -43,8 +55,9 @@ export default function AddTodo() {
             placeholder="write hier"
           />
         </label>
-        <input type="submit" value="Add ToDo" />
+        <input type="submit" value="Add ToDo" disabled={!title || loading} />
       </form>
+      {error && <p>ERROR. Please try again.</p>}
       <Link to="/">Home</Link>
     </div>
   );

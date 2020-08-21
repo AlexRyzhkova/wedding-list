@@ -5,11 +5,21 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   const [todos, setTodos] = useState(null);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const doFetch = async () => {
-      const todos = await getTodos();
-      setTodos(todos);
+      try {
+        const todos = await getTodos();
+        setTodos(todos);
+        setError(false);
+        setLoading(true);
+        setLoading(false);
+      } catch (error) {
+        setError(true);
+        setLoading(false);
+      }
     };
     doFetch();
   }, []);
@@ -17,6 +27,8 @@ export default function Home() {
   return (
     <div className="App">
       <Link to="/add">New Todo</Link>
+      {error && <p>Error</p>}
+      {loading && <div>Loading...</div>}
       {todos?.map((todo) => (
         <div key={todo.id}>
           {todo.titel}, {todo.prio},{todo.completed}
