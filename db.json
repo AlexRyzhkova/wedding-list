@@ -1,19 +1,34 @@
 {
-  "posts": [
+  "todo": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "todo": "Location finden",
+      "prio": "hoch",
+      "completed": "false"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "todo": "Datum finden",
+      "prio": "hoch",
+      "completed": "false"
+    },
+    {
+      "id": 3,
+      "todo": "Dj finden",
+      "prio": "hoch",
+      "completed": "false"
+    },
+    {
+      "id": 4,
+      "todo": "Datum für Satndesamt",
+      "prio": "hoch",
+      "completed": "false"
+    },
+    {
+      "id": 5,
+      "todo": "Fotograf",
+      "prio": "mittel",
+      "completed": "false"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
