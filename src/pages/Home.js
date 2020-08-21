@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { fetchTodos } from "../api/fetchTodos";
+import { getTodos } from "../api/fetchTodos";
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
 
   useEffect(() => {
     const doFetch = async () => {
-      const todos = await fetchTodos();
+      const todos = await getTodos();
       setTodos(todos);
     };
     doFetch();
@@ -19,7 +19,7 @@ export default function Home() {
       <Link to="/add">New Todo</Link>
       {todos?.map((todo) => (
         <div key={todo.id}>
-          {todo.todo}, {todo.prio},{todo.completed}
+          {todo.titel}, {todo.prio},{todo.completed}
         </div>
       ))}
     </div>

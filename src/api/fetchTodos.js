@@ -1,4 +1,4 @@
-export async function fetchTodos() {
+export async function getTodos() {
   const response = await fetch("http://localhost:3333/todo");
 
   if (!response.ok) {
@@ -8,4 +8,17 @@ export async function fetchTodos() {
   const fetchedTodos = response.json();
 
   return fetchedTodos;
+}
+
+export async function postTodo(todo) {
+  const response = await fetch("http://localhost:3333/todo", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(todo),
+  });
+
+  if (!response.ok) {
+    throw response;
+  }
+  return response;
 }
