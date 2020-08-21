@@ -1,26 +1,21 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { fetchTodos } from "./api/fetchTodos";
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import AddTodo from "./pages/AddTodo";
 
 function App() {
-  const [todos, setTodos] = useState(null);
-
-  useEffect(() => {
-    const doFetch = async () => {
-      const todos = await fetchTodos();
-      setTodos(todos);
-    };
-    doFetch();
-  }, []);
-
   return (
-    <div className="App">
-      {todos?.map((todo) => (
-        <div key={todo.id}>
-          {todo.todo}, {todo.prio},{todo.completed}
-        </div>
-      ))}
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/add">
+          <AddTodo />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
