@@ -2,6 +2,7 @@ import React from "react";
 import { getTodos } from "../api/fetchTodos";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
+import TodoListItem from "../components/TodoListItem";
 
 export default function Home() {
   const { data: todos, loading, error } = useQuery("todos", getTodos);
@@ -12,9 +13,9 @@ export default function Home() {
       {error && <p>Error</p>}
       {loading && <div>Loading...</div>}
       {todos?.map((todo) => (
-        <div key={todo.id}>
+        <TodoListItem key={todo.id}>
           {todo.titel}, {todo.prio},{todo.completed}
-        </div>
+        </TodoListItem>
       ))}
     </div>
   );

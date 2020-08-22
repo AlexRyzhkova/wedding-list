@@ -3,7 +3,7 @@
     {
       "id": 1,
       "titel": "Location finden",
-      "prio": "hoch",
+      "prio": "Prio 1",
       "completed": "false"
     },
     {
