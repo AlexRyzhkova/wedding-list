@@ -13,10 +13,21 @@ export async function getTodos() {
 export async function postTodo(todo) {
   const response = await fetch("http://localhost:3333/todo", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { Accept: "application/json", "Content-Type": "application/json" },
     body: JSON.stringify(todo),
   });
 
+  if (!response.ok) {
+    throw response;
+  }
+  return response;
+}
+
+export async function deleteTodo(id) {
+  const response = await fetch(`http://localhost:3333/todo${id}`, {
+    method: "DELETE",
+    headers: { Accept: "application/json", "Content-Type": "application/json" },
+  });
   if (!response.ok) {
     throw response;
   }
