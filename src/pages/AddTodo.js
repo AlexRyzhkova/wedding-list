@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { postTodo } from "../api/fetchTodos";
+import styled from "@emotion/styled";
 
+const InputField = styled.input`
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding-left: 10px;
+`;
 export default function AddTodo() {
   const [title, setTitle] = useState("");
   const [prio, setPrio] = useState("");
@@ -39,7 +46,7 @@ export default function AddTodo() {
       <form onSubmit={handleSubmit}>
         <label>
           ToDo
-          <input
+          <InputField
             type="text"
             value={title}
             onChange={handleTitleChange}
@@ -48,7 +55,7 @@ export default function AddTodo() {
         </label>
         <label>
           Prio
-          <input
+          <InputField
             type="text"
             value={prio}
             onChange={handlePrioChange}

@@ -2,31 +2,31 @@
   "todo": [
     {
       "id": 1,
-      "titel": "Location finden",
-      "prio": "hoch",
+      "title": "Location finden",
+      "prio": "Prio 1",
       "completed": "false"
     },
     {
       "id": 2,
-      "titel": "Datum finden",
+      "title": "Datum finden",
       "prio": "hoch",
       "completed": "false"
     },
     {
       "id": 3,
-      "titel": "Dj finden",
+      "title": "Dj finden",
       "prio": "hoch",
       "completed": "false"
     },
     {
       "id": 4,
-      "titel": "Datum für Satndesamt",
+      "title": "Datum für Satndesamt",
       "prio": "hoch",
       "completed": "false"
     },
     {
       "id": 5,
-      "titel": "Fotograf",
+      "title": "Fotograf",
       "prio": "mittel",
       "completed": "false"
     }
