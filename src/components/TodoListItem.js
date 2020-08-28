@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { deleteTodo } from "../api/fetchTodos";
 
 const Container = styled.div`
-  /* background: ${(props) => (props.complete ? "#ffedd2" : "#edd2ff")}; */
   background: ${(props) => (props.complete ? "#d6eadf" : "#eac4d5")};
   color: ${(props) => (props.complete ? "grey" : "#030303")};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;   
+  align-items: flex-start;
   padding: 10px;
   margin: 5px;
   border-radius: 10px;
@@ -29,19 +29,26 @@ const CompleteButton = styled.button`
   outline: none;
   border: none;
   order: 1;
-  color: ;
 `;
 
-export default function TodoListItem({ children }) {
+export default function TodoListItem({ children, todoId }) {
   const [complete, setComplete] = React.useState();
+  const [deleteId, setDeleteId] = React.useState();
+
   function completeTodo() {
     setComplete((prev) => !prev);
+  }
+  async function handleDeleteTodo(event) {
+    event.preventDefault();
+    // const todo = { id };
+    await deleteTodo(todoId);
+    setDeleteId(true);
   }
 
   return (
     <Container complete={complete}>
       <CompleteButton onClick={completeTodo}>  Done</CompleteButton> {children}
-      <DeleteButton>❌</DeleteButton>
+      <DeleteButton onClick={handleDeleteTodo}>❌</DeleteButton>
     </Container>
   );
 }

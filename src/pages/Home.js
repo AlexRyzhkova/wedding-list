@@ -5,22 +5,21 @@ import { useQuery } from "react-query";
 import TodoListItem from "../components/TodoListItem";
 import styled from "@emotion/styled";
 
+const Container = styled.div`
+  background-color: #fafafa;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Header = styled.h2`
+  font-size: 1.5rem;
+  color: black;
+  text-align: center;
+  font-style: italic;
+`;
 export default function Home() {
   const { data: todos, loading, error } = useQuery("todos", getTodos);
-
-  const Container = styled.div`
-    background-color: #fafafa;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-  `;
-
-  const Header = styled.h2`
-    font-size: 1.5rem;
-    color: black;
-    text-align: center;
-    font-style: italic;
-  `;
 
   return (
     <Container>
@@ -29,7 +28,7 @@ export default function Home() {
       {error && <p>Error</p>}
       {loading && <div>Loading...</div>}
       {todos?.map((todo) => (
-        <TodoListItem key={todo.id}>
+        <TodoListItem key={todo.id} todoId={todo.id}>
           {todo.title}, {todo.prio}
         </TodoListItem>
       ))}
