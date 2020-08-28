@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import AddTodo from "./pages/AddTodo";
-import TodoListItem from "./components/TodoListItem";
+// import TodoListItem from "./components/TodoListItem";
 import GlobalStyles from "./GlobalStyles";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
-            <TodoListItem />
+            {/* <TodoListItem /> */}
           </Route>
           <Route exact path="/add">
             <AddTodo />
