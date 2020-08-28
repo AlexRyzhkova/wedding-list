@@ -1,12 +1,6 @@
 {
   "todo": [
     {
-      "id": 1,
-      "title": "Location finden",
-      "prio": "Prio 1",
-      "completed": "false"
-    },
-    {
       "id": 2,
       "title": "Datum finden",
       "prio": "hoch",
@@ -25,10 +19,9 @@
       "completed": "false"
     },
     {
-      "id": 5,
-      "title": "Fotograf",
-      "prio": "mittel",
-      "completed": "false"
+      "title": "dcd",
+      "prio": "dcd",
+      "id": 5
     }
   ]
 }

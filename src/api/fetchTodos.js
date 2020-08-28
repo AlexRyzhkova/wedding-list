@@ -23,8 +23,8 @@ export async function postTodo(todo) {
   return response;
 }
 
-export async function deleteTodo(id) {
-  const response = await fetch(`http://localhost:3333/todo${id}`, {
+export async function deleteTodo(todo) {
+  const response = await fetch(`http://localhost:3333/todo/${todo}`, {
     method: "DELETE",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
   });
